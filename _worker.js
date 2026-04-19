@@ -7,7 +7,7 @@ export default {
     if (accept.includes('text/markdown') && (url.pathname === '/' || url.pathname === '/index.html')) {
       const markdown = `# Ferran Brichs
 
-**Advisor to Founders and Teams** | Driving Growth, Expansion, and Strategic Investment
+**Zero-to-One Market Builder** | I build the commercial foundation for AI and deep-tech companies entering new markets — entity, first deals, team, handoff.
 
 - **Email:** hello@brichs.xyz
 - **LinkedIn:** https://linkedin.com/in/ferranbrichs
@@ -18,7 +18,7 @@ export default {
 
 ## Summary
 
-Enterprise GTM leader with 25+ years building commercial operations for AI, SaaS, and deep tech companies in markets where no playbook exists. Opened offices, closed lighthouse deals, and handed off operating businesses across enterprise SaaS, autonomous systems, broadcast AI, and mobile infrastructure — at companies including ItsOn, Rdio, Location Labs, and Openwave. Closed $32M+ in landmark deals with Movistar Mexico and Digicel Group, scaling deployments to millions of users. Currently advising and investing in AI and autonomous systems companies.
+Zero-to-One Market Builder with 25+ years building commercial operations for AI, SaaS, and deep-tech companies in markets where no playbook exists. Builds the commercial foundation where none exists — entity, relationships, first lighthouse deals, operating playbook — then hands it off to the internal team. Opened offices, closed landmark deals, and handed off operating businesses at companies including ItsOn, Rdio, Location Labs, and Openwave. Closed $32M+ in deals, launched 20+ countries, scaled deployments to millions of users. Currently advising and investing in AI and autonomous systems companies.
 
 ---
 
