@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Disallow: 
+
+Sitemap: https://brichs.xyz/sitemap.xml
+
+# AI crawler rules (RFC 9309)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Content Signals - AI usage preferences
+Content-Signal: ai-train=yes, search=yes, ai-input=yes

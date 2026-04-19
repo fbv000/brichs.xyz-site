@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferran Brichs</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background: radial-gradient(circle, rgba(50, 50, 50, 1) 0%, rgba(0, 0, 0, 1) 100%),
+                        repeating-linear-gradient(0deg, rgba(20, 20, 20, 0.05) 0px, rgba(20, 20, 20, 0.05) 1px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 3px);
+        }
+        
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.05);
+            animation: brightnessOscillation 8s infinite alternate;
+            pointer-events: none;
+        }
+        
+        .console {
+            max-width: 800px;
+            width: 90%;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-top: 50px;
+            position: relative;
+            animation: textFlicker 0.05s infinite alternate;
+        }
+        a {
+            color: #0bc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .prompt {
+            color: #0f0;
+        }
+        .command {
+            color: #0bc;
+        }
+        .highlight {
+            color: #fff0f0;
+        }
+
+        .email-copy {
+            background-color: rgba(0, 188, 188, 0.55);
+            color: #000;
+            padding: 0px 10px;
+            font-weight: bold;
+            border-radius: 0px;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .email-copy:hover {
+            background-color: rgba(0, 170, 170, 0.6);
+        }
+        .email-copy.copied {
+            background-color: #000;
+            color: rgba(0, 188, 188, 1);
+        }
+
+        .hidden {
+            display: none;
+        }
+        @keyframes textFlicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.95; }
+        }
+        @keyframes brightnessOscillation {
+            0% { background: rgba(0, 0, 0, 0.03); }
+            100% { background: rgba(255, 255, 255, 0.06); }
+        }
+        @keyframes scanline {
+            0% { top: -100%; opacity: 0.2; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .scanline {
+            position: absolute;
+            top: -100%;
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            filter: blur(20px);
+            animation: scanline 5s linear infinite;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px 10px 5px;
+            }
+            .console {
+                font-size: 14px;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="console">
+        <p><span class="prompt">ferran@advisory</span>:~<span class="command">$</span> <span id="typed-command"></span><span id="cursor" class="blinking">_</span></p>
+        <div id="content" class="hidden"></div>
+    </div>
+    <div class="scanline"></div>
+    <script>
+        console.log("CRT effects initialized");
+        
+        const commandText = "cat ferran.txt";
+        let index = 0;
+        function typeCommand() {
+            if (index < commandText.length) {
+                document.getElementById("typed-command").innerHTML += commandText.charAt(index);
+                index++;
+                setTimeout(typeCommand, 100);
+            } else {
+                document.getElementById("cursor").remove();
+                setTimeout(() => {
+                    document.getElementById("content").classList.remove("hidden");
+                    typeContent();
+                }, 200);
+            }
+        }
+
+        function copyEmail() {
+            const emailElement = document.querySelector(".email-copy");
+            const email = "hello@brichs.xyz";
+
+            navigator.clipboard.writeText(email).then(() => {
+                emailElement.classList.add("copied");
+
+                setTimeout(() => {
+                    emailElement.classList.remove("copied");
+                }, 300);
+            }).catch(err => {
+                console.error("Failed to copy email: ", err);
+            });
+        }
+
+        const fullContent = `
+            <p>Hey, I'm Ferran.</p>
+            <p><span class="highlight">Advisor to Founders and Teams</span> | Driving Growth, Expansion, and Strategic Investment.</p>
+            <p>I combine strategy, execution, and endurance to help companies unlock international markets, scale operations, and close meaningful deals.</p>
+            <p>I work hands-on with leadership teams to align go-to-market execution with long-term vision — from positioning and partnerships to revenue models and team structure.</p>
+            <p>Currently collaborating with startups and scale-ups across <span class="highlight">AI, media, drones, and tech-enabled services</span>.</p>
+            <p><br><strong>Contact:</strong></p>
+            <p>Email: <span class="email-copy" onclick="copyEmail()" title="Click to copy email">hello@brichs.xyz</span></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/ferranbrichs" target="_blank">linkedin.com/in/ferranbrichs</a></p>
+            <p><br>Let's build something meaningful together.</p>
+        `;
+        
+        let contentIndex = 0;
+        function typeContent() {
+            let contentDiv = document.getElementById("content");
+            if (contentIndex < fullContent.length) {
+                contentDiv.innerHTML = fullContent.substring(0, contentIndex + 1);
+                contentIndex++;
+                setTimeout(typeContent, 3);
+            } else {
+                console.log("Content typing complete.");
+            }
+        }
+        
+        setTimeout(() => {
+            console.log("Starting command typing...");
+            typeCommand();
+        }, 1000);
+    </script>
+</body>
+</html>
