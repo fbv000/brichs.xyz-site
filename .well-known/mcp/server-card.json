@@ -1,0 +1,31 @@
+{
+  "serverInfo": {
+    "name": "brichs.xyz",
+    "version": "2.0",
+    "description": "Personal site and professional profile of Ferran Brichs, strategic advisor to founders and teams"
+  },
+  "transport": {
+    "type": "none",
+    "note": "This is a personal informational site. No MCP transport endpoint is available."
+  },
+  "capabilities": {
+    "profile": {
+      "name": "Ferran Brichs",
+      "jobTitle": "Advisor to Founders and Teams",
+      "url": "https://brichs.xyz/",
+      "email": "hello@brichs.xyz",
+      "linkedin": "https://linkedin.com/in/ferranbrichs",
+      "expertise": [
+        "Enterprise GTM",
+        "LATAM market entry",
+        "AI commercialization",
+        "International expansion",
+        "Strategic partnerships"
+      ]
+    }
+  },
+  "contact": {
+    "email": "hello@brichs.xyz",
+    "linkedin": "https://linkedin.com/in/ferranbrichs"
+  }
+}

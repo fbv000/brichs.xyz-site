@@ -1,0 +1,35 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://brichs.xyz/",
+      "https://www.rfc-editor.org/rfc/rfc9727#section-2.2": [
+        {
+          "href": "https://brichs.xyz/",
+          "type": "text/html",
+          "title": "Ferran Brichs - Personal Site"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://brichs.xyz/",
+          "type": "text/html",
+          "title": "Ferran Brichs - Advisor to Founders and Teams"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://brichs.xyz/",
+          "type": "application/ld+json",
+          "title": "Structured profile data (JSON-LD embedded in homepage)"
+        }
+      ],
+      "related": [
+        {
+          "href": "https://brichs.xyz/sitemap.xml",
+          "type": "application/xml",
+          "title": "Sitemap"
+        }
+      ]
+    }
+  ]
+}

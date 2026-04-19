@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "profile",
+      "type": "read",
+      "description": "Retrieve structured professional profile data for Ferran Brichs — expertise, experience, services, achievements, and contact information.",
+      "url": "https://brichs.xyz/.well-known/agent-skills/profile/SKILL.md",
+      "sha256": "649e337ce9384a10fc8ce9f62dc5877c00b4b0cbe6b6fb235e5513a8b770c5e7"
+    }
+  ]
+}
