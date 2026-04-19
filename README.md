@@ -1,312 +1,183 @@
-# Ferran Brichs Personal Site - v1 to v2 Changelog
+# Ferran Brichs Site
 
-## Overview
-Transformation of personal portfolio from a simple static site to an agent-ready, SEO-optimized platform with hidden comprehensive information accessible via debug mode.
+Personal site for Ferran Brichs, built as a minimalist terminal-style homepage with agent-readable structured content behind the visible interface.
 
----
+## Current positioning
 
-## Changes Summary
+- Visible homepage headline: `Zero-to-One Market Builder`
+- Visible homepage message: building the commercial foundation for AI and deep-tech companies entering new markets
+- Hidden semantic content: detailed recruiter-ready and agent-readable profile data
 
-### ✨ New Files Created
+## Changes in v2
 
-#### 1. **index-improved.html** (v2)
-Enhanced version of the original index.html with all improvements listed below.
+**Content & Messaging:**
+- ✅ Repositioned from generic "Advisor to Founders and Teams" to specific "Zero-to-One Market Builder"
+- ✅ Messaging now emphasizes commercial foundation building for AI/deep-tech market entry
+- ✅ Restored closing line: "Let's build something meaningful together"
+- ✅ Typing animation speed optimized (2ms per character for crisp interaction)
 
-#### 2. **robots.txt**
-- User-agent rules for all crawlers (allow all)
-- Explicit rules for AI crawlers (GPTBot, Claude-Web, OAI-SearchBot, Google-Extended)
-- Content Signals declaring availability for AI training and input
-- Sitemap reference
+**SEO & Discovery:**
+- ✅ Added comprehensive robots.txt with AI crawler rules (GPTBot, Claude-Web, OAI-SearchBot, Google-Extended)
+- ✅ Implemented Content Signals in robots.txt for AI training preferences
+- ✅ Created sitemap.xml for search engine discovery
+- ✅ Enhanced meta tags: Open Graph, Twitter Card, keywords, description
 
-#### 3. **sitemap.xml**
-- XML sitemap listing both pages
-- Lastmod and priority tags for search engines
+**Agent-Ready Infrastructure:**
+- ✅ RFC 9309 compliance: AI crawler rules and content signals
+- ✅ RFC 9727 compliance: API catalog at /.well-known/api-catalog
+- ✅ MCP integration: /.well-known/mcp/server-card.json for agent frameworks
+- ✅ Agent skills discovery: /.well-known/agent-skills/ with SHA256-digested skills
+- ✅ Cloudflare Worker (_worker.js): Markdown-for-agents content negotiation
+- ✅ Response headers (_headers): Content-Type and Link headers for discovery
 
----
+**Structured Data:**
+- ✅ JSON-LD Organization schema with comprehensive business information
+- ✅ Embedded credentials: 25+ years experience, $32M+ deal value, technical expertise
+- ✅ Achievement data: portfolio companies, market entry track record
+- ✅ Schema-valid structured data for search engines and AI systems
 
-## HTML & SEO Improvements (v1 → v2)
+**Deployment & Performance:**
+- ✅ Deployed to Cloudflare Pages with GitHub auto-deployment
+- ✅ Agent-readiness improved from 4/12 to 75/Level 5
+- ✅ Validation: isitagentready.com confirms high agent discoverability
 
-### Meta Tags
-**Before:** Basic meta tags only
-```html
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ferran Brichs</title>
+## What is in the site
+
+### Visible experience
+
+- Single-page terminal-style homepage
+- Typing animation for the command line and body copy
+- Click-to-copy email interaction
+- Lightweight CRT-inspired visual treatment
+
+### Hidden recruiter and agent content
+
+The page includes hidden semantic sections that stay out of the main visual experience but are available in the HTML for crawlers, agents, and debug viewing.
+
+Sections included:
+
+- About Ferran Brichs
+- Services
+- Industry Focus Areas
+- Zero-to-One GTM Framework
+- Contact and Presence
+- Key Metrics and Outcomes
+- Languages and Cultural Fluency
+- Investment and Advisory Portfolio
+- Technical Foundation and Credentials
+- Market Entry Track Record
+- Core Competencies
+- Professional Experience Summary
+
+## Debug mode
+
+Press `Ctrl+Shift+D` to toggle debug mode.
+
+When enabled:
+
+- Hidden semantic sections become visible
+- The page becomes scrollable
+- The view jumps to the first hidden section
+- A small `[DEBUG MODE]` indicator appears on screen
+
+## Agent-ready features
+
+The site is set up to be discoverable and readable by crawlers and AI agents.
+
+### Crawl and indexing
+
+- `robots.txt`
+- `sitemap.xml`
+- canonical URL
+- Open Graph and Twitter metadata
+- JSON-LD structured profile data
+
+### Agent discovery
+
+- `/.well-known/api-catalog`
+- `/.well-known/mcp/server-card.json`
+- `/.well-known/agent-skills/index.json`
+- `/.well-known/agent-skills/profile/SKILL.md`
+
+### Markdown for Agents
+
+Cloudflare Worker support is included through `_worker.js`.
+
+Requests to `/` with `Accept: text/markdown` return a markdown version of the profile instead of HTML.
+
+## Project structure
+
+```text
+.
+├── .well-known/
+├── _headers
+├── _worker.js
+├── index.html
+├── robots.txt
+├── sitemap.xml
+├── z_archive/
+└── README.md
 ```
 
-**After:** Comprehensive SEO and social media meta tags
-- ✅ `<meta name="description">` - SEO description for search engines
-- ✅ Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`, `og:type`)
-- ✅ Twitter Card tags (`twitter:card`, `twitter:title`, `twitter:description`)
-- ✅ Favicon (inline SVG with cyan "F")
-- ✅ Canonical link
-- ✅ Sitemap link
-- ✅ Preconnect to LinkedIn
+## File guide
 
----
+- `index.html`: main site and hidden semantic content
+- `_headers`: Cloudflare Pages response headers
+- `_worker.js`: markdown content negotiation for agents
+- `robots.txt`: crawler and AI bot rules
+- `sitemap.xml`: sitemap for the site
+- `.well-known/api-catalog`: API and service discovery metadata
+- `.well-known/mcp/server-card.json`: MCP discovery metadata
+- `.well-known/agent-skills/index.json`: skills discovery index
+- `.well-known/agent-skills/profile/SKILL.md`: profile skill definition
+- `z_archive/`: local archive for older versions
 
-## Accessibility Improvements
+## Deployment
 
-### Semantic HTML
-**Before:** Generic `<div class="console">`
-**After:**
-- `<main>` element for primary content
-- `<section>` tags with `aria-label` attributes
-- `role="region"` for content areas
-- `role="button"` for interactive elements
+This site is deployed on Cloudflare Pages from GitHub.
 
-### Keyboard Navigation
-- Email button now keyboard accessible via `Tab`
-- `Enter` or `Space` keys trigger email copy function
-- Focus styling with visible outline (`outline: 2px solid #0bc`)
+### Important Cloudflare files
 
-### Screen Reader Support
-- `aria-label` on all sections
-- `aria-live="polite"` on content area for dynamic updates
-- Descriptive button labels
+- `_headers` sets content types and discovery headers
+- `_worker.js` enables markdown negotiation for agents
 
----
+### After updating content
 
-## Structured Data for Agents
-
-### JSON-LD Schema (expanded)
-**Before:** Basic Person schema with 4 fields
-**After:** Comprehensive professional profile including:
-
-#### Core Information
-- Full job title and description
-- 25+ years of experience
-- 4 native/bilingual languages (Portuguese, Spanish, English, Catalan)
-
-#### Expertise Areas
-- 4 detailed working domains (AI, Media, Drones, Tech Services)
-- 13 core expertise areas (Strategic Planning, Go-to-Market, etc.)
-- 10+ service offerings
-
-#### Key Achievements
-- $32M+ in landmark deals
-- 2M+ customer deployments
-- 20+ countries launched
-- 4 Sao Paulo office openings
-- Lighthouse accounts with major carriers
-
-#### Technical Foundation
-- 7 years at Oracle background
-- Database architecture expertise
-- Computer vision and AI knowledge
-- Autonomous systems experience
-- Certifications and credentials
-
-#### Investment Portfolio
-- Investment-first advisory model
-- Notable exits: Archer Aviation (NYSE:ACHR), Makara, Wuaki TV
-- 15+ companies advised
-
----
-
-## Hidden Agent-Readable Sections
-
-All sections use `display: none` in CSS so the visual interface remains clean, but content is crawlable by agents and accessible via debug mode.
-
-### Added Sections (visible with Ctrl+Shift+D):
-
-1. **Detailed Bio**
-   - Full background and advisory approach
-   - Professional philosophy
-
-2. **Services Offered**
-   - 10 specific service areas
-   - Go-to-market, expansion, scaling, etc.
-
-3. **Industry Expertise**
-   - Deep dives into AI, Media, Drones, Services
-   - Use case descriptions
-
-4. **Advisory Approach**
-   - Hands-on methodology
-   - Alignment and partnership philosophy
-
-5. **Key Metrics & Outcomes**
-   - 25+ years experience
-   - Deal sizes and deployment scale
-   - Quota achievement history
-
-6. **Languages & Cultural Fluency**
-   - 4 native/bilingual languages
-   - Geographic expertise (LATAM cities)
-   - Cultural navigation capability
-
-7. **Investment Portfolio**
-   - Model description
-   - Notable exits
-   - Portfolio focus areas
-
-8. **Technical Credentials**
-   - Oracle background
-   - 13 technical expertise areas
-   - 8+ certifications and training
-
-9. **Market Entry Track Record**
-   - 7 zero-to-one market entries
-   - Companies and timelines
-   - Success patterns
-
-10. **Core Competencies**
-    - 40+ specific skills organized into 5 categories
-    - AI & Technology Commercialization
-    - Sales & Business Development
-    - International Expansion
-    - Leadership & Operations
-    - Industry Expertise
-
-11. **Professional Experience Summary**
-    - Timeline of all roles from 1990-Present
-    - Company names and focus areas
-
----
-
-## Debug Mode Feature
-
-### Keyboard Shortcut
-**Press: `Ctrl+Shift+D`** to toggle debug mode
-
-### What Happens
-1. All hidden sections become visible
-2. Each section styled with:
-   - Subtle cyan background (`rgba(0, 188, 188, 0.05)`)
-   - Left border accent (`3px solid`)
-   - Padding and margins for readability
-3. `[DEBUG MODE]` indicator appears in bottom-right corner
-4. Body automatically scrolls to first hidden section
-5. Overflow enabled to allow full scrolling
-
-### Toggle On/Off
-- Press `Ctrl+Shift+D` again to hide sections and return to normal view
-
----
-
-## Agent Readiness Features
-
-### What Agents Can Now Discover
-
-**Visible to all crawlers:**
-- Expanded JSON-LD structured data
-- SEO-optimized meta tags
-- Proper sitemap and robots.txt
-- Canonical URLs
-
-**Visible to agent debug requests:**
-- 11 hidden sections with comprehensive profile information
-- 40+ specific competencies
-- Full professional history
-- Investment portfolio and exits
-- Technical credentials
-- Market entry track record
-
-**From HTML alone:**
-- Semantic structure for parsing
-- Structured data for extraction
-- Links for navigation
-- Accessible content hierarchy
-
-### Agent Skills Ready
-✅ SEO/Search fundamentals
-✅ Structured data (JSON-LD)
-✅ Sitemap and robots.txt
-✅ Accessibility (a11y)
-✅ Mobile responsive
-✅ Keyboard navigation
-✅ Hidden but parseable content
-
----
-
-## File Structure
-
-```
-ferran-site-3/
-├── index.html              (v1 - original simple version)
-├── index-improved.html     (v2 - enhanced with all improvements)
-├── robots.txt              (crawler directives + AI rules)
-├── sitemap.xml            (XML sitemap for indexing)
-└── README.md              (this file)
+```bash
+git add .
+git commit -m "your message"
+git push
 ```
 
----
+Cloudflare Pages will redeploy automatically.
 
-## Version Comparison
+## Validation
 
-| Feature | v1 | v2 |
-|---------|----|----|
-| Visual Design | ✓ | ✓ (unchanged) |
-| Meta Tags | Basic | Full SEO + Social |
-| Structured Data | Basic | Comprehensive |
-| Semantic HTML | No | Yes |
-| Accessibility | Limited | Full a11y support |
-| Hidden Content | No | 11 sections |
-| Debug Mode | No | Yes (Ctrl+Shift+D) |
-| Keyboard Nav | No | Yes |
-| Screen Reader | Limited | Full support |
-| robots.txt | No | Yes |
-| sitemap.xml | No | Yes |
-| Agent Ready | Partial | High (70%+) |
+Useful checks:
 
----
+```bash
+curl https://brichs.xyz/robots.txt
+curl https://brichs.xyz/sitemap.xml
+curl https://brichs.xyz/.well-known/api-catalog
+curl https://brichs.xyz/.well-known/mcp/server-card.json
+curl https://brichs.xyz/.well-known/agent-skills/index.json
+curl -H "Accept: text/markdown" https://brichs.xyz/
+```
 
-## How to Use
+Also useful:
 
-### For Visitors
-1. **Normal mode:** Clean, simple terminal interface with typing animation
-2. **Debug mode:** Press `Ctrl+Shift+D` to reveal comprehensive profile information
-3. **Email:** Click email address to copy to clipboard
-4. **Links:** Click LinkedIn to visit profile
+- `https://isitagentready.com`
+- `https://validator.schema.org`
+- Google Rich Results Test
 
-### For Agents/Crawlers
-1. **Direct crawl:** Scan JSON-LD schema and semantic HTML
-2. **Sitemap:** Follow `/sitemap.xml` for all pages
-3. **robots.txt:** Check `/robots.txt` for crawl rules
-4. **Content Signals:** Note AI training/input preferences in robots.txt
+## Notes
 
----
+- The hidden sections are not private. They are only visually hidden.
+- The site intentionally stays simple on the surface.
+- `robots.txt` currently declares AI content usage preferences as allowed.
 
-## Deployment Notes
+## Status
 
-### Current Status
-- All files ready for static hosting
-- No server-side processing required
-- Works on any web host
-
-### For 100% Agent Readiness
-When deploying to Netlify, Vercel, or self-hosted server, ensure:
-1. Serve `robots.txt` with `Content-Type: text/plain`
-2. Serve `sitemap.xml` with `Content-Type: application/xml`
-3. Consider adding HTTP Link headers (requires server config)
-
-### Testing
-- Validate with isitagentready.com
-- Test keyboard navigation (Tab, Enter, Space)
-- Test screen readers (NVDA, JAWS, VoiceOver)
-- Verify JSON-LD with schema.org validator
-- Check robots.txt at google.com/webmasters
-
----
-
-## Future Enhancements (Optional)
-
-- Terminal command system (`help`, `about`, `skills`, `portfolio`)
-- API Catalog (/.well-known/api-catalog)
-- WebMCP integration for direct agent interaction
-- OAuth/OIDC for authentication-based content
-- Dynamic portfolio updates from external data source
-- Blog/insights section with markdown support
-
----
-
-## Credits
-
-Built for agent discoverability while maintaining the clean, minimalist design of the original site. Combines traditional SEO practices with emerging agent-ready standards (RFC 9309, RFC 9727, Content Signals).
-
----
-
-**Last Updated:** April 19, 2026
-**Version:** 2.0
-**Status:** Agent-Ready (70%+)
+- Platform: Cloudflare Pages
+- Style: static site with worker augmentation
+- Current agent-readiness score achieved during setup: `75 / Level 5`
