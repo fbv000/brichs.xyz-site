@@ -8,39 +8,6 @@ Personal site for Ferran Brichs, built as a minimalist terminal-style homepage w
 - Visible homepage message: building the commercial foundation for AI and deep-tech companies entering new markets
 - Hidden semantic content: detailed recruiter-ready and agent-readable profile data
 
-## Changes in v2
-
-**Content & Messaging:**
-- ✅ Repositioned from generic "Advisor to Founders and Teams" to specific "Zero-to-One Market Builder"
-- ✅ Messaging now emphasizes commercial foundation building for AI/deep-tech market entry
-- ✅ Restored closing line: "Let's build something meaningful together"
-- ✅ Typing animation speed optimized (2ms per character for crisp interaction)
-
-**SEO & Discovery:**
-- ✅ Added comprehensive robots.txt with AI crawler rules (GPTBot, Claude-Web, OAI-SearchBot, Google-Extended)
-- ✅ Implemented Content Signals in robots.txt for AI training preferences
-- ✅ Created sitemap.xml for search engine discovery
-- ✅ Enhanced meta tags: Open Graph, Twitter Card, keywords, description
-
-**Agent-Ready Infrastructure:**
-- ✅ RFC 9309 compliance: AI crawler rules and content signals
-- ✅ RFC 9727 compliance: API catalog at /.well-known/api-catalog
-- ✅ MCP integration: /.well-known/mcp/server-card.json for agent frameworks
-- ✅ Agent skills discovery: /.well-known/agent-skills/ with SHA256-digested skills
-- ✅ Cloudflare Worker (_worker.js): Markdown-for-agents content negotiation
-- ✅ Response headers (_headers): Content-Type and Link headers for discovery
-
-**Structured Data:**
-- ✅ JSON-LD Organization schema with comprehensive business information
-- ✅ Embedded credentials: 25+ years experience, $32M+ deal value, technical expertise
-- ✅ Achievement data: portfolio companies, market entry track record
-- ✅ Schema-valid structured data for search engines and AI systems
-
-**Deployment & Performance:**
-- ✅ Deployed to Cloudflare Pages with GitHub auto-deployment
-- ✅ Agent-readiness improved from 4/12 to 75/Level 5
-- ✅ Validation: isitagentready.com confirms high agent discoverability
-
 ## What is in the site
 
 ### Visible experience
@@ -162,6 +129,18 @@ curl https://brichs.xyz/.well-known/api-catalog
 curl https://brichs.xyz/.well-known/mcp/server-card.json
 curl https://brichs.xyz/.well-known/agent-skills/index.json
 curl -H "Accept: text/markdown" https://brichs.xyz/
+```
+
+Quick local checklist:
+
+```bash
+bash scripts/validate-checklist.sh
+```
+
+Optional remote endpoint checks:
+
+```bash
+RUN_REMOTE_CHECKS=1 SITE_URL=https://brichs.xyz bash scripts/validate-checklist.sh
 ```
 
 Also useful:
